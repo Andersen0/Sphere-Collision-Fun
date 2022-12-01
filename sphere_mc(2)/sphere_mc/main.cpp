@@ -18,6 +18,21 @@ int mc_iter = 100;
 int num_spheres = 100;
 int num_overlaps;
 
+int count_total()
+{
+    int c;
+    for(int i = 0; i < num_spheres; i++)
+    {
+        if(check_overlap(i))
+        {
+            c ++
+        }
+    }
+    return std::cout << "Total number of overlaps: " << c;
+
+}
+
+
 int main(){
     generator.seed(rand_seed); // Generating random numbers from a randomly given seed
     gen_max_num = generator.max(); // Returning the maximum number from the randomly generated number
@@ -37,7 +52,7 @@ int main(){
         spheres.push_back(sphere); // Adds a new element, in this case a sphere with set coordinates to the end of a vector
                                    // equivalent to .append() in Python
     }
-
+    count_total();
     // Monte Carlo loop; mc_dist() uses the minstd_rand random number generator to generate random distances
     for(int i = 1; i <= mc_iter; i++){ // Iterating through a pre-set number of Monte Carlo iterations
         for(int j = 0; j < num_spheres; j++) // Iterating through a pre-set number of spheres
@@ -51,6 +66,7 @@ int main(){
         }
         std::cout << num_overlaps << " overlaps were found.\n";
     }
+    count_total();
     std::cout << num_moves << " number of spheres were moved.\n";
     std::cout << num_overlaps << " overlaps were found.\n"; 
 }
