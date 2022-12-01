@@ -3,11 +3,16 @@
 #include <random>
 #include <iostream>
 #include <vector>
+#include <chrono>
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
 
 std::minstd_rand generator; // Pseudo-random number generator 
 unsigned int gen_max_num; // Unsigned int because we don't want a negative value on the integer
 unsigned int gen_min_num; 
-int rand_seed = 1219;
+int rand_seed = rand()%100;
 int size_box = 20;
 int rad = 1;
 std::vector <Sphere> spheres;
@@ -18,23 +23,11 @@ int mc_iter = 100;
 int num_spheres = 100;
 int num_overlaps;
 
-int count_total()
-{
-    int c;
-    for(int i = 0; i < num_spheres; i++)
-    {
-        if(check_overlap(i))
-        {
-            c ++
-        }
-    }
-    return std::cout << "Total number of overlaps: " << c;
-
-}
-
 
 int main(){
-    generator.seed(rand_seed); // Generating random numbers from a randomly given seed
+    auto t0 = std::chrono::high_resolution_clock::now(); // Start-time
+    srand(time(NULL));
+    generator.seed(rand()%100); // Generating random numbers from a randomly given seed
     gen_max_num = generator.max(); // Returning the maximum number from the randomly generated number
     gen_min_num = generator.min(); // Returning the minimum number from the randomly generated number
 
@@ -52,9 +45,9 @@ int main(){
         spheres.push_back(sphere); // Adds a new element, in this case a sphere with set coordinates to the end of a vector
                                    // equivalent to .append() in Python
     }
-    count_total();
     // Monte Carlo loop; mc_dist() uses the minstd_rand random number generator to generate random distances
     for(int i = 1; i <= mc_iter; i++){ // Iterating through a pre-set number of Monte Carlo iterations
+        num_overlaps = 0;
         for(int j = 0; j < num_spheres; j++) // Iterating through a pre-set number of spheres
         {
             rand_sphere = int(mc_dist() * num_spheres); // Using int() here because mc_dist() is a double and num_spheres is a int
@@ -66,7 +59,9 @@ int main(){
         }
         std::cout << num_overlaps << " overlaps were found.\n";
     }
-    count_total();
     std::cout << num_moves << " number of spheres were moved.\n";
     std::cout << num_overlaps << " overlaps were found.\n"; 
+    auto t1 = std::chrono::high_resolution_clock::now();
+    auto delta_t01 = std::chrono::duration_cast<std::chrono::microseconds>(t1-t0).count();
+    std::cout << "===\nOverall runtime:\t"  << 1.0e-06*(delta_t01) << " s\n";
 }
