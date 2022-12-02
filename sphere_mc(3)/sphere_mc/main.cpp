@@ -54,8 +54,9 @@ int main(){
             rand_sphere = int(mc_dist() * num_spheres); // Using int() here because mc_dist() is a double and num_spheres is a int
             sphereMoved = move_sphere(rand_sphere); // A sphere is moved if the move_sphere function is true
             num_moves += sphereMoved; // Adding to the total number of moves 
-            if(check_overlap(j)){
-                num_overlaps++; // If there is an overlap, add +1 to the num_overlaps variable
+            if (check_overlap(j))
+            {
+                num_overlaps++;
             }
         }
         std::cout << num_overlaps << " overlaps were found.\n"; // Printing number of overlaps after every MC-iteration
