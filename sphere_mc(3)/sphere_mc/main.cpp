@@ -19,7 +19,7 @@ int num_moves;
 int rand_sphere; 
 int sphereMoved;
 int mc_iter = 10; // A pre-set number of total number of iterations in the Monte Carlo loop
-int num_spheres = 1000; // A pre-set total number of spheres
+int num_spheres = 100; // A pre-set total number of spheres
 int num_overlaps;
 
 int main(){

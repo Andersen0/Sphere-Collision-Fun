@@ -68,6 +68,7 @@ double mc_dist(){
 int move_sphere(int a){
    double mc_x; double mc_y; double mc_z;
    double prev_x; double prev_y; double prev_z;
+
    // Randomly generated distance
    mc_x = mc_dist();
    mc_y = mc_dist();
