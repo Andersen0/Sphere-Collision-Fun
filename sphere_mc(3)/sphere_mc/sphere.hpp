@@ -2,7 +2,7 @@
 #define __SPHERE__
 
 struct Sphere{
-    Sphere();
+    Sphere(); 
     double coords[3];
     Sphere(double, double, double);
     void place_coord(double, double, double);

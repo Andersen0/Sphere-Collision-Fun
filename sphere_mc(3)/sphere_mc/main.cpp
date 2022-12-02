@@ -8,26 +8,26 @@
 #include <stdlib.h>
 #include <time.h>
 
-
 std::minstd_rand generator; // Pseudo-random number generator 
 unsigned int gen_max_num; // Unsigned int because we don't want a negative value on the integer
 unsigned int gen_min_num; 
 int rand_seed = rand()%100;
-int size_box = 20;
-int rad = 1;
+int size_box = 50; // A pre-set size of the box
+int rad = 1; // A pre-set radius of a sphere
 std::vector <Sphere> spheres;
 int num_moves;
-int rand_sphere;
+int rand_sphere; 
 int sphereMoved;
-int mc_iter = 100;
-int num_spheres = 100;
+int mc_iter = 10; // A pre-set number of total number of iterations in the Monte Carlo loop
+int num_spheres = 1000; // A pre-set total number of spheres
 int num_overlaps;
-
 
 int main(){
     auto t0 = std::chrono::high_resolution_clock::now(); // Start-time
+
     srand(time(NULL));
     generator.seed(rand()%100); // Generating random numbers from a randomly given seed
+
     gen_max_num = generator.max(); // Returning the maximum number from the randomly generated number
     gen_min_num = generator.min(); // Returning the minimum number from the randomly generated number
 
@@ -35,16 +35,17 @@ int main(){
     for(int i = 0; i < num_spheres; i++){
         double placed_x; double placed_y; double placed_z;
 
-        placed_x = (mc_dist() * size_box) - size_box / 2;
-        placed_y = (mc_dist() * size_box) - size_box / 2;
-        placed_z = (mc_dist() * size_box) - size_box / 2;
+        placed_x = (mc_dist() * size_box) - size_box / 2; // Set x-coordinate that is dependent on mc_dist() which is random
+        placed_y = (mc_dist() * size_box) - size_box / 2; // Set y-coordinate that is dependent on mc_dist() which is random
+        placed_z = (mc_dist() * size_box) - size_box / 2; // Set z-coordinate that is dependent on mc_dist() which is random
         
         Sphere sphere;
-        sphere.place_coord(placed_x, placed_y, placed_z);
+        sphere.place_coord(placed_x, placed_y, placed_z); // Placing the coordinates in the box
 
         spheres.push_back(sphere); // Adds a new element, in this case a sphere with set coordinates to the end of a vector
                                    // equivalent to .append() in Python
     }
+
     // Monte Carlo loop; mc_dist() uses the minstd_rand random number generator to generate random distances
     for(int i = 1; i <= mc_iter; i++){ // Iterating through a pre-set number of Monte Carlo iterations
         num_overlaps = 0;
@@ -54,14 +55,16 @@ int main(){
             sphereMoved = move_sphere(rand_sphere); // A sphere is moved if the move_sphere function is true
             num_moves += sphereMoved; // Adding to the total number of moves 
             if(check_overlap(j)){
-                num_overlaps++;
+                num_overlaps++; // If there is an overlap, add +1 to the num_overlaps variable
             }
         }
-        std::cout << num_overlaps << " overlaps were found.\n";
+        std::cout << num_overlaps << " overlaps were found.\n"; // Printing number of overlaps after every MC-iteration
     }
-    std::cout << num_moves << " number of spheres were moved.\n";
-    std::cout << num_overlaps << " overlaps were found.\n"; 
-    auto t1 = std::chrono::high_resolution_clock::now();
-    auto delta_t01 = std::chrono::duration_cast<std::chrono::microseconds>(t1-t0).count();
-    std::cout << "===\nOverall runtime:\t"  << 1.0e-06*(delta_t01) << " s\n";
+    std::cout << "=======================\n";
+    std::cout << num_moves << " number of spheres were moved.\n"; 
+    std::cout << num_overlaps << " overlaps were found at the end of the MC-loop."; 
+
+    auto t1 = std::chrono::high_resolution_clock::now(); // End-time
+    auto delta_t01 = std::chrono::duration_cast<std::chrono::microseconds>(t1-t0).count(); // Total runtime
+    std::cout << "\nOverall runtime: "  << 1.0e-06*(delta_t01) << " s\n";
 }

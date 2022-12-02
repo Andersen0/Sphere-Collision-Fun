@@ -4,6 +4,7 @@
 #include "sphere.hpp"
 #include <random>
 
+// The extern keyword is used here on global variables to specify that the variables have an external linkage
 
 extern std::minstd_rand generator;
 extern unsigned int gen_max_num;
