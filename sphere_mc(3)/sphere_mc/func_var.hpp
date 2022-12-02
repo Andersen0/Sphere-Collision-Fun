@@ -15,5 +15,6 @@ extern int mc_iter;
 extern double rad;
 extern double size_box;
 extern std::vector <Sphere> spheres;
+extern int num_overlaps;
 
 #endif 

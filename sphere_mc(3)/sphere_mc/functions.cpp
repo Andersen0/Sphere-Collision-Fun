@@ -68,7 +68,6 @@ double mc_dist(){
 int move_sphere(int a){
    double mc_x; double mc_y; double mc_z;
    double prev_x; double prev_y; double prev_z;
-
    // Randomly generated distance
    mc_x = mc_dist();
    mc_y = mc_dist();
@@ -92,6 +91,7 @@ int move_sphere(int a){
       spheres[a].coords[0] = prev_x;
       spheres[a].coords[1] = prev_y;
       spheres[a].coords[2] = prev_z;
+      num_overlaps++; // If there is an overlap, add +1 to the num_overlaps variable
       return 0;
    } 
    return 1;
