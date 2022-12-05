@@ -63,15 +63,15 @@ std::minstd_rand generator; // Pseudo-random number generator
 unsigned int gen_max_num; // Unsigned int because we don't want a negative value on the integer
 unsigned int gen_min_num; 
 int rand_seed = rand()%100;
-double size_box = 10; // A pre-set size of the box
+double size_box = 50; // A pre-set size of the box
 double rad = 1; // A pre-set radius of a sphere
 std::vector <Sphere> spheres;
 int num_moves;
 int overlap;
 int rand_sphere; 
 int sphereMoved;
-int mc_iter = 200000; // A pre-set maximum number of total number of iterations in the Monte Carlo loop
-int num_spheres = 100; // A pre-set total number of spheres
+int mc_iter = 2000; // A pre-set maximum number of total number of iterations in the Monte Carlo loop
+int num_spheres = 1000; // A pre-set total number of spheres
 int num_overlaps;
 
 
