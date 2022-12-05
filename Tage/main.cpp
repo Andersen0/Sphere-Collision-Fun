@@ -55,6 +55,9 @@ Hard spheres are in use as a simple model for simulation of condensed phases (so
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <fstream>  
+
+
 
 std::minstd_rand generator; // Pseudo-random number generator 
 unsigned int gen_max_num; // Unsigned int because we don't want a negative value on the integer
@@ -68,7 +71,7 @@ int overlap;
 int rand_sphere; 
 int sphereMoved;
 int mc_iter = 2000; // A pre-set maximum number of total number of iterations in the Monte Carlo loop
-int num_spheres = 14000; // A pre-set total number of spheres
+int num_spheres = 1000; // A pre-set total number of spheres
 int num_overlaps;
 
 
@@ -117,6 +120,18 @@ int main(){
             break;
         }
     }
+    
+    int p = 0;
+    std::ofstream outfile ("test.txt");
+
+    outfile << size_box << std::endl;
+    outfile << num_spheres << std::endl;
+    for (p=0; p<num_spheres; p++){
+        outfile << spheres[p].coords[0] << " " << spheres[p].coords[1] << " " << spheres[p].coords[2] << std::endl;
+    }
+
+    outfile.close();
+
     std::cout << "=======================\n";
     std::cout << num_moves << " moves were made.\n"; 
     std::cout << num_overlaps << " overlaps were found at the end of the MC-loop."; 
