@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>My Project: Main Page</title>
+<title>My Project: INF205: Resource-efficient programming (2022H)</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -60,11 +60,26 @@ $(function() {
 </iframe>
 </div>
 
-<div class="header">
+<div class="PageDoc"><div class="header">
   <div class="headertitle">
-<div class="title">My Project Documentation</div>  </div>
+<div class="title">INF205: Resource-efficient programming (2022H) </div>  </div>
 </div><!--header-->
 <div class="contents">
+<div class="textblock"><h1><a class="anchor" id="Assignment"></a>
+Assignment</h1>
+<p>Topic: <a class="el" href="structSphere.html">Sphere</a> overlap Summary</p>
+<p>There are a n spheres, for each of which the diameter and the coordinate of the centre is given as part of the input. Your code should, as a first functionality (which already existed in code from the lecture), be able to efficiently compute the number of overlaps. As a second functionality, the code should be able to rearrange the spheres, confined within a finite volume, in order to reduce the number of overlaps. In particular, where possible, a configuration completely without overlaps should be generated. Default recommendations</p>
+<p>Use a cube-shaped box (containing the spheres) with periodic boundary conditions and the minimum image convention.</p>
+<p>You can deviate from the default recommendations; follow them if you do not see any good reason not to. Benchmark scenario</p>
+<p>The benchmark scenario has one main parameter, the number of particles N. It can be generated using the sphere benchmark scenario generator. The size value contained in the scenario generator output is the sphere diameter, not the sphere radius.</p>
+<p>Optionally, additional parameters can be varied in the benchmark scenario: The packing fraction (default: ξ = 7/9) and the size ratio between the largest and smallest spheres (default: ζmax = 10/3). Technical remarks</p>
+<p>If the centres of two spheres are closer than the sum of their radii, it should be counted as one overlap, except if they are closer than half the sum of their radii: Then this should count with a factor eight, i.e., as equivalent to eight overlaps.</p>
+<p>It will often be hard to find the exact global minimum of the number of overlaps for large values of n; in these cases the aim is to find a good approximation. Why is this an interesting topic?</p>
+<p>Hard spheres are in use as a simple model for simulation of condensed phases (solids and liquids) and of granular media (materials such as sand). They are a good system for getting started with methodology, algorithms, and data structures that are in use for particle-based simulations, which is a major field of use for scientific high performance computing infrastructures, and useful for many engineering applications.</p>
+<h1><a class="anchor" id="Authors"></a>
+Authors</h1>
+<p>Marko Miric, Elias Evjen Hartmark and Tage Andersen from group 12. </p>
+</div></div><!-- PageDoc -->
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

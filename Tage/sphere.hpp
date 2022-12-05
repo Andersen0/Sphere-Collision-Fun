@@ -1,3 +1,9 @@
+/*! \file sphere.hpp
+    \brief A header file for sphere generation.
+    
+    
+*/
+
 #ifndef __SPHERE__
 #define __SPHERE__
 

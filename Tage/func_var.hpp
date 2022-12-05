@@ -1,3 +1,9 @@
+/*! \file func_var.hpp
+    \brief A file containing global variables.
+    
+    
+*/
+
 #ifndef __FUNC_VAR__
 #define __FUNC_VAR__
 

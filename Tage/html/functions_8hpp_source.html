@@ -65,18 +65,23 @@ $(function() {
 <div class="title">functions.hpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef __FUNCTIONS__</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define __FUNCTIONS__</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="keywordtype">double</span> square_dist(<span class="keywordtype">int</span>, <span class="keywordtype">int</span>);</div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keywordtype">void</span> PBC(<span class="keywordtype">int</span>);</div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keywordtype">bool</span> check_overlap(<span class="keywordtype">int</span>);</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keywordtype">double</span> mc_dist();</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keywordtype">int</span> move_sphere(<span class="keywordtype">int</span>);</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keywordtype">int</span> count_overlaps(); </div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#endif </span></div>
+<a href="functions_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#ifndef __FUNCTIONS__</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#define __FUNCTIONS__</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keywordtype">double</span> <a class="code" href="functions_8hpp.html#a85b28485b5ff793584db4b75d0b0afa8">square_dist</a>(<span class="keywordtype">int</span>, <span class="keywordtype">int</span>);</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keywordtype">void</span> PBC(<span class="keywordtype">int</span>);</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keywordtype">bool</span> <a class="code" href="functions_8hpp.html#af92b5ff8115898d7906ca716ba7f6f22">check_overlap</a>(<span class="keywordtype">int</span>);</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keywordtype">double</span> <a class="code" href="functions_8hpp.html#a394ddff8922510401defc07f03dc1274">mc_dist</a>();</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keywordtype">int</span> <a class="code" href="functions_8hpp.html#ab658f8010746fe19c8b96c60148b7e36">move_sphere</a>(<span class="keywordtype">int</span>);</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keywordtype">int</span> count_overlaps(); </div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#endif </span></div>
 </div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="afunctions_8hpp_html_ab658f8010746fe19c8b96c60148b7e36"><div class="ttname"><a href="functions_8hpp.html#ab658f8010746fe19c8b96c60148b7e36">move_sphere</a></div><div class="ttdeci">int move_sphere(int)</div><div class="ttdoc">move_sphere changes the coordinates of the spheres and checks for overlaps. If there is an overlap th...</div><div class="ttdef"><b>Definition:</b> functions.cpp:134</div></div>
+<div class="ttc" id="afunctions_8hpp_html_a85b28485b5ff793584db4b75d0b0afa8"><div class="ttname"><a href="functions_8hpp.html#a85b28485b5ff793584db4b75d0b0afa8">square_dist</a></div><div class="ttdeci">double square_dist(int, int)</div><div class="ttdoc">square_dist measures the distance between two spheres and returns this result.</div><div class="ttdef"><b>Definition:</b> functions.cpp:26</div></div>
+<div class="ttc" id="afunctions_8hpp_html_a394ddff8922510401defc07f03dc1274"><div class="ttname"><a href="functions_8hpp.html#a394ddff8922510401defc07f03dc1274">mc_dist</a></div><div class="ttdeci">double mc_dist()</div><div class="ttdoc">mc_dist generates a random distance by taking the random number generated and dividing by the differe...</div><div class="ttdef"><b>Definition:</b> functions.cpp:115</div></div>
+<div class="ttc" id="afunctions_8hpp_html_af92b5ff8115898d7906ca716ba7f6f22"><div class="ttname"><a href="functions_8hpp.html#af92b5ff8115898d7906ca716ba7f6f22">check_overlap</a></div><div class="ttdeci">bool check_overlap(int)</div><div class="ttdoc">check_overlap iterates over all spheres except i and checks if the square_dist value is below the ove...</div><div class="ttdef"><b>Definition:</b> functions.cpp:83</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

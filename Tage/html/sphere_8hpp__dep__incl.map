@@ -1,0 +1,7 @@
+<map id="sphere.hpp" name="sphere.hpp">
+<area shape="rect" id="node1" title="A header file for sphere generation." alt="" coords="134,5,229,32"/>
+<area shape="rect" id="node2" href="$func__var_8hpp.html" title="A file containing global variables." alt="" coords="83,80,189,107"/>
+<area shape="rect" id="node3" href="$functions_8cpp.html" title="This file contains most the functions that are run in the MC&#45;loop." alt="" coords="5,155,115,181"/>
+<area shape="rect" id="node4" href="$main_8cpp.html" title="Main contains important parameters and the MC&#45;loop plus initialization of the sphere generation and r..." alt="" coords="169,155,252,181"/>
+<area shape="rect" id="node5" href="$sphere_8cpp.html" title="Generator of spheres and defines the variables attached to them." alt="" coords="264,80,357,107"/>
+</map>

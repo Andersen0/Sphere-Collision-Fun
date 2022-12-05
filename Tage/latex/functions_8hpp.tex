@@ -1,0 +1,108 @@
+\hypertarget{functions_8hpp}{}\doxysection{functions.\+hpp File Reference}
+\label{functions_8hpp}\index{functions.hpp@{functions.hpp}}
+
+
+A Documented file.  
+
+
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=242pt]{functions_8hpp__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{functions_8hpp_a85b28485b5ff793584db4b75d0b0afa8}{square\+\_\+dist}} (int, int)
+\begin{DoxyCompactList}\small\item\em square\+\_\+dist measures the distance between two spheres and returns this result. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{functions_8hpp_a9064de34a5a769ef424726ea1fb894fd}\label{functions_8hpp_a9064de34a5a769ef424726ea1fb894fd}} 
+void {\bfseries P\+BC} (int)
+\item 
+bool \mbox{\hyperlink{functions_8hpp_af92b5ff8115898d7906ca716ba7f6f22}{check\+\_\+overlap}} (int)
+\begin{DoxyCompactList}\small\item\em check\+\_\+overlap iterates over all spheres except i and checks if the square\+\_\+dist value is below the overlap thresholds. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{functions_8hpp_a394ddff8922510401defc07f03dc1274}{mc\+\_\+dist}} ()
+\begin{DoxyCompactList}\small\item\em mc\+\_\+dist generates a random distance by taking the random number generated and dividing by the difference between the max and min \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{functions_8hpp_ab658f8010746fe19c8b96c60148b7e36}{move\+\_\+sphere}} (int)
+\begin{DoxyCompactList}\small\item\em move\+\_\+sphere changes the coordinates of the spheres and checks for overlaps. If there is an overlap then the spheres are returned to the original coordinate. P\+BC is also tested. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{functions_8hpp_af8c75dd15a69811894b942e756473230}\label{functions_8hpp_af8c75dd15a69811894b942e756473230}} 
+int {\bfseries count\+\_\+overlaps} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A Documented file. 
+
+Details. 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{functions_8hpp_af92b5ff8115898d7906ca716ba7f6f22}\label{functions_8hpp_af92b5ff8115898d7906ca716ba7f6f22}} 
+\index{functions.hpp@{functions.hpp}!check\_overlap@{check\_overlap}}
+\index{check\_overlap@{check\_overlap}!functions.hpp@{functions.hpp}}
+\doxysubsubsection{\texorpdfstring{check\_overlap()}{check\_overlap()}}
+{\footnotesize\ttfamily bool check\+\_\+overlap (\begin{DoxyParamCaption}\item[{int}]{i }\end{DoxyParamCaption})}
+
+
+
+check\+\_\+overlap iterates over all spheres except i and checks if the square\+\_\+dist value is below the overlap thresholds. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & is the int value belonging to the sphere we are checking overlaps on.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool value 
+\end{DoxyReturn}
+\mbox{\Hypertarget{functions_8hpp_a394ddff8922510401defc07f03dc1274}\label{functions_8hpp_a394ddff8922510401defc07f03dc1274}} 
+\index{functions.hpp@{functions.hpp}!mc\_dist@{mc\_dist}}
+\index{mc\_dist@{mc\_dist}!functions.hpp@{functions.hpp}}
+\doxysubsubsection{\texorpdfstring{mc\_dist()}{mc\_dist()}}
+{\footnotesize\ttfamily double mc\+\_\+dist (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+mc\+\_\+dist generates a random distance by taking the random number generated and dividing by the difference between the max and min 
+
+\begin{DoxyReturn}{Returns}
+double value 
+\end{DoxyReturn}
+\mbox{\Hypertarget{functions_8hpp_ab658f8010746fe19c8b96c60148b7e36}\label{functions_8hpp_ab658f8010746fe19c8b96c60148b7e36}} 
+\index{functions.hpp@{functions.hpp}!move\_sphere@{move\_sphere}}
+\index{move\_sphere@{move\_sphere}!functions.hpp@{functions.hpp}}
+\doxysubsubsection{\texorpdfstring{move\_sphere()}{move\_sphere()}}
+{\footnotesize\ttfamily int move\+\_\+sphere (\begin{DoxyParamCaption}\item[{int}]{a }\end{DoxyParamCaption})}
+
+
+
+move\+\_\+sphere changes the coordinates of the spheres and checks for overlaps. If there is an overlap then the spheres are returned to the original coordinate. P\+BC is also tested. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & is the int value belonging to the sphere we are potentially moving.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int value which is counted for number of moves later. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{functions_8hpp_a85b28485b5ff793584db4b75d0b0afa8}\label{functions_8hpp_a85b28485b5ff793584db4b75d0b0afa8}} 
+\index{functions.hpp@{functions.hpp}!square\_dist@{square\_dist}}
+\index{square\_dist@{square\_dist}!functions.hpp@{functions.hpp}}
+\doxysubsubsection{\texorpdfstring{square\_dist()}{square\_dist()}}
+{\footnotesize\ttfamily double square\+\_\+dist (\begin{DoxyParamCaption}\item[{int}]{sphere\+\_\+1,  }\item[{int}]{sphere\+\_\+2 }\end{DoxyParamCaption})}
+
+
+
+square\+\_\+dist measures the distance between two spheres and returns this result. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sphere\+\_\+1} & int value belonging to the first sphere \\
+\hline
+{\em sphere\+\_\+2} & int value belonging to the second sphere\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+dist double value which is the gap between sphere 1 and 2 in regards to their center. 
+\end{DoxyReturn}

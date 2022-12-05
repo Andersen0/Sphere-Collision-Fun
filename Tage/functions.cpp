@@ -1,9 +1,27 @@
+/**
+*
+* @file functions.cpp
+*
+* @brief This file contains most the functions that are run in the MC-loop. 
+*/
+
 #include "functions.hpp"
 #include "sphere.hpp"
 #include "func_var.hpp"
 #include <iostream>
 #include <random>
 #include <vector>
+
+
+/**
+*
+* @brief square_dist measures the distance between two spheres and returns this result. 
+*
+* @param sphere_1 int value belonging to the first sphere
+* @param sphere_2 int value belonging to the second sphere
+*
+* @return dist double value which is the gap between sphere 1 and 2 in regards to their center. 
+*/
 
 double square_dist(int sphere_1, int sphere_2){
    double diff[3];
@@ -28,6 +46,16 @@ double square_dist(int sphere_1, int sphere_2){
    return dist;
 }
 
+
+/**
+*
+* @brief sphere_PBC makes sure that the spheres don't move outside of the box.
+*
+* @param i is the int value belonging to the given sphere we are checking the boundary condition on. 
+*
+* @return void
+*/
+
 void sphere_PBC(int i) // This function creates a periodic boundary condition of the spheres
 {
    double l_box = size_box / 2;
@@ -41,6 +69,16 @@ void sphere_PBC(int i) // This function creates a periodic boundary condition of
    }
    return;
 }
+
+
+/**
+*
+* @brief check_overlap iterates over all spheres except i and checks if the square_dist value is below the overlap thresholds. 
+*
+* @param i is the int value belonging to the sphere we are checking overlaps on. 
+*
+* @return bool value
+*/
 
 bool check_overlap(int i){
    // Checking for overlap between spheres
@@ -66,6 +104,14 @@ bool check_overlap(int i){
    return 0;
 }
 
+
+/**
+*
+* @brief mc_dist generates a random distance by taking the random number generated and dividing by the difference between the max and min
+*
+* @return double value 
+*/
+
 double mc_dist(){
    // It generates a random distance by taking the random number generated and dividing by the difference between the max and min
    // number that was generated and adding +1 to it
@@ -74,6 +120,16 @@ double mc_dist(){
    // Moreover, using double here instead of int or float makes it easier for the code to deal with decimal points
    return(static_cast<double>(generator()) / (static_cast<double> (gen_max_num - gen_min_num) + 1));
 }
+
+
+/**
+*
+* @brief move_sphere changes the coordinates of the spheres and checks for overlaps. If there is an overlap then the spheres are returned to the original coordinate. PBC is also tested. 
+*
+* @param a is the int value belonging to the sphere we are potentially moving.
+*
+* @return int value which is counted for number of moves later.
+*/
 
 int move_sphere(int a){
    double mc_x; double mc_y; double mc_z;

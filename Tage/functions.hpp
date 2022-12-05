@@ -1,3 +1,9 @@
+/*! \file functions.hpp
+    \brief A Documented file.
+    
+    Details.
+*/
+
 #ifndef __FUNCTIONS__
 #define __FUNCTIONS__
 

@@ -1,3 +1,48 @@
+/**
+*
+* @file main.cpp
+* @author Tage Andersen, Elias Evjen Hartmark, Marko Miric
+* @brief Main contains important parameters and the MC-loop plus initialization of the sphere generation and random seed. 
+*
+* @version 1
+* @date 2022-12-5
+* @copyright Copyright (c) 2022
+*/
+
+/*! \mainpage INF205: Resource-efficient programming (2022H)
+ *
+ * \section  Assignment
+ *
+ * Topic: Sphere overlap
+Summary
+
+There are a n spheres, for each of which the diameter and the coordinate of the centre is given as part of the input. Your code should, as a first functionality (which already existed in code from the lecture), be able to efficiently compute the number of overlaps. As a second functionality, the code should be able to rearrange the spheres, confined within a finite volume, in order to reduce the number of overlaps. In particular, where possible, a configuration completely without overlaps should be generated.
+Default recommendations
+
+Use a cube-shaped box (containing the spheres) with periodic boundary conditions and the minimum image convention.
+
+You can deviate from the default recommendations; follow them if you do not see any good reason not to.
+Benchmark scenario
+
+The benchmark scenario has one main parameter, the number of particles N. It can be generated using the sphere benchmark scenario generator. The size value contained in the scenario generator output is the sphere diameter, not the sphere radius.
+
+Optionally, additional parameters can be varied in the benchmark scenario: The packing fraction (default: ξ = 7/9) and the size ratio between the largest and smallest spheres (default: ζmax = 10/3).
+Technical remarks
+
+If the centres of two spheres are closer than the sum of their radii, it should be counted as one overlap, except if they are closer than half the sum of their radii: Then this should count with a factor eight, i.e., as equivalent to eight overlaps.
+
+It will often be hard to find the exact global minimum of the number of overlaps for large values of n; in these cases the aim is to find a good approximation.
+Why is this an interesting topic?
+
+Hard spheres are in use as a simple model for simulation of condensed phases (solids and liquids) and of granular media (materials such as sand). They are a good system for getting started with methodology, algorithms, and data structures that are in use for particle-based simulations, which is a major field of use for scientific high performance computing infrastructures, and useful for many engineering applications.
+ *
+ * \section Authors
+ * Marko Miric, Elias Evjen Hartmark and Tage Andersen from group 12. 
+ * 
+ *
+ * 
+ */
+
 #include "sphere.hpp"
 #include "functions.hpp"
 #include "func_var.hpp"
@@ -25,6 +70,7 @@ int sphereMoved;
 int mc_iter = 2000; // A pre-set maximum number of total number of iterations in the Monte Carlo loop
 int num_spheres = 14000; // A pre-set total number of spheres
 int num_overlaps;
+
 
 int main(){
     auto t0 = std::chrono::high_resolution_clock::now(); // Start-time

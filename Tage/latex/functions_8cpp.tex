@@ -1,0 +1,128 @@
+\hypertarget{functions_8cpp}{}\doxysection{functions.\+cpp File Reference}
+\label{functions_8cpp}\index{functions.cpp@{functions.cpp}}
+
+
+This file contains most the functions that are run in the M\+C-\/loop.  
+
+
+{\ttfamily \#include \char`\"{}functions.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}sphere.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}func\+\_\+var.\+hpp\char`\"{}}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$random$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+Include dependency graph for functions.\+cpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{functions_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{functions_8cpp_a53e4dfaa4dba47f74c0f072bd794b177}{square\+\_\+dist}} (int sphere\+\_\+1, int sphere\+\_\+2)
+\begin{DoxyCompactList}\small\item\em square\+\_\+dist measures the distance between two spheres and returns this result. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{functions_8cpp_a392b5ac37ae530920b11ed0b15731791}{sphere\+\_\+\+P\+BC}} (int i)
+\begin{DoxyCompactList}\small\item\em sphere\+\_\+\+P\+BC makes sure that the spheres don\textquotesingle{}t move outside of the box. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{functions_8cpp_a9e7ec7b9539087f9465630f83fc9e60c}{check\+\_\+overlap}} (int i)
+\begin{DoxyCompactList}\small\item\em check\+\_\+overlap iterates over all spheres except i and checks if the square\+\_\+dist value is below the overlap thresholds. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{functions_8cpp_a394ddff8922510401defc07f03dc1274}{mc\+\_\+dist}} ()
+\begin{DoxyCompactList}\small\item\em mc\+\_\+dist generates a random distance by taking the random number generated and dividing by the difference between the max and min \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{functions_8cpp_af54fad15e80636969a47a0f9b57b61db}{move\+\_\+sphere}} (int a)
+\begin{DoxyCompactList}\small\item\em move\+\_\+sphere changes the coordinates of the spheres and checks for overlaps. If there is an overlap then the spheres are returned to the original coordinate. P\+BC is also tested. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This file contains most the functions that are run in the M\+C-\/loop. 
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{functions_8cpp_a9e7ec7b9539087f9465630f83fc9e60c}\label{functions_8cpp_a9e7ec7b9539087f9465630f83fc9e60c}} 
+\index{functions.cpp@{functions.cpp}!check\_overlap@{check\_overlap}}
+\index{check\_overlap@{check\_overlap}!functions.cpp@{functions.cpp}}
+\doxysubsubsection{\texorpdfstring{check\_overlap()}{check\_overlap()}}
+{\footnotesize\ttfamily bool check\+\_\+overlap (\begin{DoxyParamCaption}\item[{int}]{i }\end{DoxyParamCaption})}
+
+
+
+check\+\_\+overlap iterates over all spheres except i and checks if the square\+\_\+dist value is below the overlap thresholds. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & is the int value belonging to the sphere we are checking overlaps on.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool value 
+\end{DoxyReturn}
+\mbox{\Hypertarget{functions_8cpp_a394ddff8922510401defc07f03dc1274}\label{functions_8cpp_a394ddff8922510401defc07f03dc1274}} 
+\index{functions.cpp@{functions.cpp}!mc\_dist@{mc\_dist}}
+\index{mc\_dist@{mc\_dist}!functions.cpp@{functions.cpp}}
+\doxysubsubsection{\texorpdfstring{mc\_dist()}{mc\_dist()}}
+{\footnotesize\ttfamily double mc\+\_\+dist (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+mc\+\_\+dist generates a random distance by taking the random number generated and dividing by the difference between the max and min 
+
+\begin{DoxyReturn}{Returns}
+double value 
+\end{DoxyReturn}
+\mbox{\Hypertarget{functions_8cpp_af54fad15e80636969a47a0f9b57b61db}\label{functions_8cpp_af54fad15e80636969a47a0f9b57b61db}} 
+\index{functions.cpp@{functions.cpp}!move\_sphere@{move\_sphere}}
+\index{move\_sphere@{move\_sphere}!functions.cpp@{functions.cpp}}
+\doxysubsubsection{\texorpdfstring{move\_sphere()}{move\_sphere()}}
+{\footnotesize\ttfamily int move\+\_\+sphere (\begin{DoxyParamCaption}\item[{int}]{a }\end{DoxyParamCaption})}
+
+
+
+move\+\_\+sphere changes the coordinates of the spheres and checks for overlaps. If there is an overlap then the spheres are returned to the original coordinate. P\+BC is also tested. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & is the int value belonging to the sphere we are potentially moving.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int value which is counted for number of moves later. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{functions_8cpp_a392b5ac37ae530920b11ed0b15731791}\label{functions_8cpp_a392b5ac37ae530920b11ed0b15731791}} 
+\index{functions.cpp@{functions.cpp}!sphere\_PBC@{sphere\_PBC}}
+\index{sphere\_PBC@{sphere\_PBC}!functions.cpp@{functions.cpp}}
+\doxysubsubsection{\texorpdfstring{sphere\_PBC()}{sphere\_PBC()}}
+{\footnotesize\ttfamily void sphere\+\_\+\+P\+BC (\begin{DoxyParamCaption}\item[{int}]{i }\end{DoxyParamCaption})}
+
+
+
+sphere\+\_\+\+P\+BC makes sure that the spheres don\textquotesingle{}t move outside of the box. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & is the int value belonging to the given sphere we are checking the boundary condition on.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{functions_8cpp_a53e4dfaa4dba47f74c0f072bd794b177}\label{functions_8cpp_a53e4dfaa4dba47f74c0f072bd794b177}} 
+\index{functions.cpp@{functions.cpp}!square\_dist@{square\_dist}}
+\index{square\_dist@{square\_dist}!functions.cpp@{functions.cpp}}
+\doxysubsubsection{\texorpdfstring{square\_dist()}{square\_dist()}}
+{\footnotesize\ttfamily double square\+\_\+dist (\begin{DoxyParamCaption}\item[{int}]{sphere\+\_\+1,  }\item[{int}]{sphere\+\_\+2 }\end{DoxyParamCaption})}
+
+
+
+square\+\_\+dist measures the distance between two spheres and returns this result. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sphere\+\_\+1} & int value belonging to the first sphere \\
+\hline
+{\em sphere\+\_\+2} & int value belonging to the second sphere\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+dist double value which is the gap between sphere 1 and 2 in regards to their center. 
+\end{DoxyReturn}
