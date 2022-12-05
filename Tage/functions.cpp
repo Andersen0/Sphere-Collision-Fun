@@ -72,7 +72,7 @@ double mc_dist(){
    // Static_cast is used here to convert one data type into another data type, here converted from int to double since
    // gen_max_num and gen_min_num is an unsigned int
    // Moreover, using double here instead of int or float makes it easier for the code to deal with decimal points
-   return(static_cast<double>(generator()) / (static_cast<double> (gen_max_num - gen_min_num) + rad));
+   return(static_cast<double>(generator()) / (static_cast<double> (gen_max_num - gen_min_num) + 1));
 }
 
 int move_sphere(int a){
@@ -80,9 +80,9 @@ int move_sphere(int a){
    double prev_x; double prev_y; double prev_z;
 
    // Randomly generated distance
-   mc_x = mc_dist();
-   mc_y = mc_dist();
-   mc_z = mc_dist();
+   mc_x = mc_dist() + rad;
+   mc_y = mc_dist() + rad;
+   mc_z = mc_dist() + rad;
    // Previous positions of coordinates x, y and z
    prev_x = spheres[a].coords[0];
    prev_y = spheres[a].coords[1];

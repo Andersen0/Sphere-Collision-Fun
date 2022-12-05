@@ -22,8 +22,8 @@ int num_moves;
 int overlap;
 int rand_sphere; 
 int sphereMoved;
-int mc_iter = 200; // A pre-set maximum number of total number of iterations in the Monte Carlo loop
-int num_spheres = 2000; // A pre-set total number of spheres
+int mc_iter = 2000; // A pre-set maximum number of total number of iterations in the Monte Carlo loop
+int num_spheres = 14000; // A pre-set total number of spheres
 int num_overlaps;
 
 int main(){
@@ -67,13 +67,13 @@ int main(){
             }
         std::cout << num_overlaps << " overlaps were found.\n"; // Printing number of overlaps after every MC-iteration
         if (num_overlaps == 0) {
+            std::cout << i << " number of MC iterations were performed." << std::endl;
             break;
         }
     }
     std::cout << "=======================\n";
     std::cout << num_moves << " moves were made.\n"; 
     std::cout << num_overlaps << " overlaps were found at the end of the MC-loop."; 
-
     auto t1 = std::chrono::high_resolution_clock::now(); // End-time
     auto delta_t01 = std::chrono::duration_cast<std::chrono::microseconds>(t1-t0).count(); // Total runtime
     std::cout << "\nOverall runtime: "  << 1.0e-06*(delta_t01) << " s\n";
