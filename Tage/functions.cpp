@@ -63,9 +63,9 @@ void sphere_PBC(int i) // This function creates a periodic boundary condition of
    {
       // Here we restrict the sphere coordinates to the simulated box
       if(spheres[i].coords[j] < -l_box+rad) 
-         spheres[i].coords[j] += size_box-(2*rad);
+         spheres[i].coords[j] += size_box-rad;
       else if(spheres[i].coords[j] > l_box-rad) 
-         spheres[i].coords[j] -= size_box-(2*rad);  
+         spheres[i].coords[j] -= size_box-rad;  
    }
    return;
 }
@@ -94,7 +94,7 @@ bool check_overlap(int i){
             overlap = 8;
             return 1; // If the square distance of the two spheres is less than the sum of half the radii of the spheres, there is 8 collisions
          } 
-         else if(square_dist(i, j) < 2*rad){
+         else if(square_dist(i, j) <= 2*rad){
             //std::cout << i << " sphere returned 1" << std::endl;
             overlap = 1;
             return 1; // If the square distance of the two spheres is less than the sum of the radii of the spheres, there is a collision
