@@ -70,7 +70,7 @@ int num_moves;
 int overlap;
 int rand_sphere; 
 int sphereMoved;
-int mc_iter = 2000; // A pre-set maximum number of total number of iterations in the Monte Carlo loop
+int mc_iter = 10000; // A pre-set maximum number of total number of iterations in the Monte Carlo loop
 int num_spheres = 1000; // A pre-set total number of spheres
 int num_overlaps;
 
@@ -103,6 +103,7 @@ int main(){
     for(int i = 1; i <= mc_iter; i++){ // Iterating through a pre-set number of Monte Carlo iterations
         num_overlaps = 0;
         for(int c = 0; c < num_spheres; c++){
+            //std::cout << check_overlap(c) << " first " << std::endl;
             if (check_overlap(c))
             {
                 num_overlaps += overlap;
@@ -116,11 +117,23 @@ int main(){
             }
         std::cout << num_overlaps << " overlaps were found.\n"; // Printing number of overlaps after every MC-iteration
         if (num_overlaps == 0) {
+            int p = 0;
+        
+            std::ofstream outfile ("test.txt");
+
+            outfile << size_box << std::endl;
+            outfile << num_spheres << std::endl;
+            for (p=0; p<num_spheres; p++){
+                outfile << spheres[p].coords[0] << " " << spheres[p].coords[1] << " " << spheres[p].coords[2] << std::endl;
+            }
+
+            outfile.close();
             std::cout << i << " number of MC iterations were performed." << std::endl;
             break;
         }
     }
     
+    /*
     int p = 0;
     std::ofstream outfile ("test.txt");
 
@@ -131,6 +144,8 @@ int main(){
     }
 
     outfile.close();
+    */
+
 
     std::cout << "=======================\n";
     std::cout << num_moves << " moves were made.\n"; 

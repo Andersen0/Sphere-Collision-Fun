@@ -51,7 +51,7 @@ for sphere in array_result:
 
 # ax.scatter3D(sphere_x, sphere_y, sphere_z, s=1)
 
-wall = [-25, 25]
+wall = [-box_size/2, box_size/2]
 for s, e in combinations(np.array(list(product(wall, wall, wall))), 2):
     if np.sum(np.abs(s-e)) == wall[1]-wall[0]:
         ax.plot3D(*zip(s, e), color="b")

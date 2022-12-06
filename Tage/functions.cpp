@@ -31,17 +31,17 @@ double square_dist(int sphere_1, int sphere_2){
    diff[0] = spheres[sphere_1].coords[0] - spheres[sphere_2].coords[0]; // X-coordinate difference between two spheres
    diff[1] = spheres[sphere_1].coords[1] - spheres[sphere_2].coords[1]; // Y-coordinate difference between two spheres
    diff[2] = spheres[sphere_1].coords[2] - spheres[sphere_2].coords[2]; // Z-coordinate difference between two spheres 
-
+/*
    for(int i = 0; i < 3; i++){
       if(diff[i] < -cent_box)
          diff[i] += size_box;
-      
+
       else if(diff[i] > size_box)
          diff[i] -= size_box;
-   }
 
+   }
+*/
    double dist = sqrt(diff[0]*diff[0] + diff[1]*diff[1] + diff[2]*diff[2]); // Square distance
-   //std::cout << dist << " square distance" << std::endl; 
 
    return dist;
 }
@@ -63,9 +63,9 @@ void sphere_PBC(int i) // This function creates a periodic boundary condition of
    {
       // Here we restrict the sphere coordinates to the simulated box
       if(spheres[i].coords[j] < -l_box+rad) 
-         spheres[i].coords[j] += size_box-rad;
+         spheres[i].coords[j] += size_box-(2*rad);
       else if(spheres[i].coords[j] > l_box-rad) 
-         spheres[i].coords[j] -= size_box-rad;  
+         spheres[i].coords[j] -= size_box-(2*rad);
    }
    return;
 }
@@ -83,6 +83,7 @@ void sphere_PBC(int i) // This function creates a periodic boundary condition of
 bool check_overlap(int i){
    // Checking for overlap between spheres
    int num_spheres = spheres.size(); // Using size() to get the total number of spheres
+
    for(int j = 0; j < num_spheres; j++) // Iterating through the number of spheres
    {
       overlap = 0;
@@ -152,7 +153,6 @@ int move_sphere(int a){
    //std::cout << spheres[a].coords[0] << " " << spheres[a].coords[1] << " " << spheres[a].coords[2] << " old " << std::endl;
    sphere_PBC(a); // Periodic boundary condition
    //std::cout << spheres[a].coords[0] << " " << spheres[a].coords[1] << " " << spheres[a].coords[2] << " new " << std::endl;
-
 
    if(check_overlap(a))
    {
